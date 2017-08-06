@@ -12,14 +12,18 @@ export default class OrderSingle extends Component{
 	}
 
 	render(){
+		
+		const orderClass = this.props.order.complete ? "checked" : ""; 
+		const status = this.props.order.complete ? <input type="text" className="completed"/> : ''; 
 		return(
-			<li>
+			<li className={orderClass}>
 				<input type="checkbox"
 					readOnly={true}
 					checked={ this.props.order.complete }
 					onClick={this.toggleChecked.bind(this)}
 				/>
 				{ this.props.order.text }
+				{status}
 				<buton className="btn-cancel"
 					   onClick={this.deleteOrder.bind(this)} >
 					   &times;
