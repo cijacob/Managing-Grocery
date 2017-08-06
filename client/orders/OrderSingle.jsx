@@ -11,13 +11,20 @@ export default class OrderSingle extends Component{
 		Meteor.call('deleteOrder', this.props.order._id);
 	}
 
+	calculateInput(){
+		$('.orderClass').on('calculateInput', function(){
+			var totalSum = 0; 
+		})
+	}
+
 	render(){
 		
 		const orderClass = this.props.order.complete ? "checked" : ""; 
-		const status = this.props.order.complete ? <input type="text" className="completed"/> : ''; 
+		const status = this.props.order.complete ? <span className="calculateInput"><input type="number" className="completed"/> €</span> : ''; 
 		return(
 			<li className={orderClass}>
 				<input type="checkbox"
+					className="checkbox"
 					readOnly={true}
 					checked={ this.props.order.complete }
 					onClick={this.toggleChecked.bind(this)}
