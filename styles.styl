@@ -33,12 +33,12 @@ $wide = 1200px
 black = #222
 grey = #D8D8D8
 light-grey = #EEE
-purp = #524763
+dark-green = #047E76
 dark-purp = #373142
 red = #E54B4B
 teal = #82D8D8
 dark-teal = #66A6A6
-green = #CBE56C
+green = #009688
 blue = #16528E
 bright-blue = #0082C8
 light-red = #CA5765
@@ -140,12 +140,12 @@ main
 .btn, button
     display inline-block
     cursor pointer
-    background purp
+    background dark-green
     color #FFF
     text-decoration none
     text-transform uppercase
     padding 5px 15px
-    border solid 3px purp
+    border solid 3px dark-green
     border-radius 2px
     font-weight 800
     shadow-level(1)
@@ -290,7 +290,7 @@ input:-ms-input-placeholder
   z-index: 1;
   width: 1.5rem;
   height: 1.5rem;
-  border: 2px solid #f2f2f2;
+  border: 2px solid grey;
   vertical-align: middle
 
 [type="checkbox"]:checked:before 
@@ -300,7 +300,7 @@ input:-ms-input-placeholder
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
   height: .5rem;
-  border-color: #009688;
+  border-color: green;
   border-top-style: none;
   border-right-style: none;
 
@@ -314,7 +314,7 @@ input:-ms-input-placeholder
   background: #fff;
   cursor: pointer;
 
-.completed
+.ordered
     color grey 
     border-radius 5px
     padding 5px 
@@ -356,7 +356,7 @@ input:-ms-input-placeholder
         text-align center
         trans()
         &:hover, &.active
-            background purp 
+            background dark-green
     i
         display block
         font-size 2em
@@ -382,6 +382,23 @@ input:-ms-input-placeholder
                 border-left 10px solid teal
         
 
+.sectionOrder
+    font-size: 1em;
+    background: #fff;
+    border: none;
+    border-radius: 5px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    button
+        border: none
+    .listEnd
+        display inline-block
+        padding 5px 0
+        width 33.3%
+        text-align center
+        border-right 1px solid grey
+        background-color transparent
+        color: grey
    
 #login-dropdown-list
     right -1px

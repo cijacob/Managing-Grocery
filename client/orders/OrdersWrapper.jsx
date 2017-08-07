@@ -1,8 +1,9 @@
-import React from 'react'; 
+import React from 'react';
 import ReactDOM from 'react-dom';
-import TrackerReact from 'meteor/ultimatejs:tracker-react'; 
-import OrdersForm from './OrdersForm'; 
-import OrderSingle from './OrderSingle'; 
+import TrackerReact from 'meteor/ultimatejs:tracker-react';
+import OrdersForm from './OrdersForm';
+import OrderSingle from './OrderSingle';
+
 
 Orders = new Mongo.Collection("orders"); 
 
@@ -23,6 +24,21 @@ export default class OrdersWrapper extends TrackerReact(React.Component){
 	orders(){
 		return Orders.find().fetch(); 
 	}
+
+	getVisibleOrder(orders, filter){
+		switch(filter){
+			case 'show_all':
+				return orders; 
+			case 'show_ordered':
+				return orders.filter(function(o){
+					return o.Ordered; 
+				});
+			case 'show-active':
+				return orders.filter(function(o){
+					return !o.completed;
+				});
+		}
+	}
 	
 	render(){
 		return(
@@ -35,6 +51,11 @@ export default class OrdersWrapper extends TrackerReact(React.Component){
 						}
 					)}		
 				</ul>
+				<div className="sectionOrder">
+					<span><button className="listEnd" onClick={this.getVisibleOrder.bind(this)}>All orders</button></span>
+					<span><button className="listEnd" onClick={this.getVisibleOrder.bind(this)}>On wainting list</button></span>
+					<span><button className="listEnd" onClick={this.getVisibleOrder.bind(this)}>Ordered List</button></span>
+				</div>
 			</div>
 		)
 	}

@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 export default class OrderSingle extends Component{
 	
 	toggleChecked(){
-		Meteor.call('toggleOrder', this.props.order._id, this.props.order.complete);
+		Meteor.call('toggleOrder', this.props.order._id, this.props.order.ordered);
 	}
 
 	deleteOrder(){
@@ -12,22 +12,24 @@ export default class OrderSingle extends Component{
 	}
 
 	calculateInput(){
-		$('.orderClass').on('calculateInput', function(){
+
+		$('.calculateInput').on('orderClass', function(){
 			var totalSum = 0; 
 		})
 	}
 
 	render(){
 		
-		const orderClass = this.props.order.complete ? "checked" : ""; 
-		const status = this.props.order.complete ? <span className="calculateInput"><input type="number" className="completed"/> €</span> : ''; 
+		const orderClass = this.props.order.ordered ? "checked" : ""; 
+		const status = this.props.order.ordered ? <span className="calculateInput"><input type="number" className="ordered"/>{ this.props.order.price } €</span> : ''; 
+		
 		return(
 			<li className={orderClass}>
 				<input type="checkbox"
 					className="checkbox"
 					readOnly={true}
-					checked={ this.props.order.complete }
-					onClick={this.toggleChecked.bind(this)}
+					checked={ this.props.order.ordered }
+					onClick={ this.toggleChecked.bind(this)}
 				/>
 				{ this.props.order.text }
 				{status}

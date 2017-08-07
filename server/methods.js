@@ -1,14 +1,15 @@
 Meteor.methods({
 	addOrder(order){
 		Orders.insert({
-			text: order, 
-			complete: false, 
+			text: order,
+			price: "", 
+			ordered: false,
 			createdAt: new Date()
 		});
 	}, 
 	toggleOrder(id, status){
 		Orders.update(id, {
-			$set: {complete: !status}
+			$set: {ordered: !status}
 			
 		})
 	}, 
