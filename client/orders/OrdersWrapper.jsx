@@ -8,6 +8,8 @@ import OrderSingle from './OrderSingle';
 Orders = new Mongo.Collection("orders"); 
 
 export default class OrdersWrapper extends TrackerReact(React.Component){
+
+
 	constructor(){
 		super(); 
 		this.state = {
@@ -52,9 +54,14 @@ export default class OrdersWrapper extends TrackerReact(React.Component){
 					)}		
 				</ul>
 				<div className="sectionOrder">
-					<span><button className="listEnd" onClick={this.getVisibleOrder.bind(this)}>All orders</button></span>
-					<span><button className="listEnd" onClick={this.getVisibleOrder.bind(this)}>On wainting list</button></span>
-					<span><button className="listEnd" onClick={this.getVisibleOrder.bind(this)}>Ordered List</button></span>
+					<span><button className="listEnd" onClick={()=>dispatch(getVisibleOrder("show_all"))}>All orders</button></span>
+					<span><button className="listEnd" onClick={()=>dispatch(getVisibleOrder("show_ordered"))}>Ordered</button></span>
+					<span><button className="listEnd" onClick={()=>dispatch(getVisibleOrder("show-active"))}>Orders Active</button></span>
+				</div>
+				<div>
+					
+					{this.getVisibleOrder.bind(this)}
+					
 				</div>
 			</div>
 		)

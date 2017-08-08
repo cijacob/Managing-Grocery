@@ -15,5 +15,8 @@ Meteor.methods({
 	}, 
 	deleteOrder(id){
 		Orders.remove(id);
+	},
+	calculateInput(order){
+
 	}
 });

@@ -88,6 +88,7 @@ footer
     left 0
     shadow-level(4)
 header, footer
+    opacity 0.5
     color #FFF 
     background: turquoise
     padding 20px 5%
@@ -399,6 +400,12 @@ input:-ms-input-placeholder
         border-right 1px solid grey
         background-color transparent
         color: grey
+
+nav i::before
+    content: ""
+    font 'FontAwsome'
+    content: "\f004"
+    color: red
    
 #login-dropdown-list
     right -1px

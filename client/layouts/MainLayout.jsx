@@ -15,7 +15,7 @@ export const MainLayout = ({content}) =>(
 		<footer>
 			<h2>Cindy Jacob</h2>
 			<nav>
-				<a href="https://github.com/cijacob/Managing-Grocery">Here, you can see my code, hosted with <i className="fa fa-heart" aria-hidden="true"></i> by github</a>
+				<a href="https://github.com/cijacob/Managing-Grocery">Here, you can see my code, hosted with <i></i> by github</a>
 			</nav>
 		</footer>
 	</div>

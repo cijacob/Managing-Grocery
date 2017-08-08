@@ -12,10 +12,7 @@ export default class OrderSingle extends Component{
 	}
 
 	calculateInput(){
-
-		$('.calculateInput').on('orderClass', function(){
-			var totalSum = 0; 
-		})
+		Meteor.call('calculateInput', this.props.order.price);
 	}
 
 	render(){
